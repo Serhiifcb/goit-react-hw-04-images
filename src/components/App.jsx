@@ -7,12 +7,11 @@ import { ImageGallery } from "./ImageGallery/ImageGallery";
 export class App extends React.Component {
 
   state = {
-    searchImageText: '', 
-    page: 1,
+    searchImageText: '',
   }
 
   formSubmitHandler = searchImageText => {
-    this.setState({ searchImageText });  
+    this.setState({ searchImageText});
   }
 
   render() {

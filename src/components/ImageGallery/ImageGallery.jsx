@@ -20,26 +20,19 @@ export class ImageGallery extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevProps.searchImageText !== this.props.searchImageText || prevState.page !== this.state.page) {
-      console.log(prevProps.searchImageText);
-      console.log(this.props.searchImageText);
-      console.log(prevState.page);
-      console.log(this.state.page);
-      console.log("Виконано перше порівняння");
-      if (prevProps.searchImageText !== this.props.searchImageText) {
-        console.log('Друга перевірка');
+    if (prevProps.searchImageText !== this.props.searchImageText) {
         this.setState({
           page: 1,
           images: [],
         })
       }
+    if (prevProps.searchImageText !== this.props.searchImageText || prevState.page !== this.state.page) {
+           
       this.setState({
         loading: true,
         error: null,
       })
-      
-      // setTimeout(() => {
-        console.log("Фетч");
+
         fetch(`https://pixabay.com/api/?q=${this.props.searchImageText}&page=${this.state.page}&key=30577922-67600fce07e41f9eca16e67a5&image_type=photo&orientation=horizontal&per_page=12`)
           .then(response => { 
             if (response.ok) {
@@ -58,19 +51,16 @@ export class ImageGallery extends React.Component {
           })
           .catch(error => this.setState({ error }))
         .finally(() => this.setState({loading: false}));
-      // }, 1000)
     }
   }
 
   toggleModal = () => {
-    console.log('Тогл модалки');
     this.setState(state => ({
       showModal: !state.showModal,
     }))
   }
 
   setModalImage = (modalImage) => {
-    console.log('setModalImage');
     this.setState(state => ({
       modalImage,
     }))
