@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 import css from "../ImageGallery/ImageGallery.module.css"
 import { ImageGalleryItem } from "components/ImageGalleryItem/ImageGalleryItem";
 import { Modal } from "components/Modal/Modal";
@@ -97,7 +97,7 @@ export class ImageGallery extends React.Component {
         {(images.length > 0) && <Button
           loadMore={this.loadMore}
         />}
-        {showModal && <Modal toggleModal={this.toggleModal}><img src={this.state.modalImage} alt="image" /></Modal>}
+        {showModal && <Modal toggleModal={this.toggleModal}><img src={this.state.modalImage} alt="modal" /></Modal>}
       </>
       )
   }  
