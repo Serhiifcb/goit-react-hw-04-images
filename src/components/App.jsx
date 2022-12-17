@@ -11,14 +11,14 @@ export class App extends React.Component {
   }
 
   formSubmitHandler = searchImageText => {
-    this.setState({ searchImageText});
+    this.setState({ searchImageText });
   }
 
   render() {
   return (
     <div>
       <Searchbar onSubmit={this.formSubmitHandler} />
-      <ImageGallery searchImageText={this.state.searchImageText} />
+      <ImageGallery searchImageText={this.state.searchImageText}/>
       
       <ToastContainer autoClose={6000} />
     </div>
