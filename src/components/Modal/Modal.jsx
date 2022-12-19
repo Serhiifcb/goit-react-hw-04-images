@@ -1,4 +1,4 @@
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import React from "react";
 import css from "../Modal/Modal.module.css"
 import { SlClose } from 'react-icons/sl';
@@ -43,3 +43,7 @@ export class Modal extends React.Component {
   
 }
 
+Modal.propTypes = {
+  children: PropTypes.node,
+  onSubmit:PropTypes.func.isRequired
+}

@@ -1,5 +1,5 @@
 import React from "react";
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import css from "../ImageGallery/ImageGallery.module.css"
 import { ImageGalleryItem } from "components/ImageGalleryItem/ImageGalleryItem";
 
@@ -19,3 +19,9 @@ export class ImageGallery extends React.Component {
   }  
 }
 
+ImageGallery.propTypes = {
+  images: PropTypes.arrayOf(
+    PropTypes.shape).isRequired,
+  toggleModal: PropTypes.func.isRequired,
+  setModalImage: PropTypes.func.isRequired,
+}
