@@ -11,13 +11,5 @@
   margin-right: auto;
 }
 
-.errorMessage {
-  margin-top: 10px;
-  text-align: center;
-}
 
-.loading {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
+
