@@ -11,7 +11,9 @@ export class ImageGallery extends React.Component {
       <>        
         {(images.length > 0) && (
           <ul className={css.imageGallery}>
-            <ImageGalleryItem images={images} toggleModal={toggleModal} setModalImage={setModalImage} /> 
+            {images.map(image => (
+              <ImageGalleryItem key={image.id} webformatURL={image.webformatURL} largeImageURL={image.largeImageURL} toggleModal={toggleModal} setModalImage={setModalImage} />
+            ))}  
           </ul>
         )}
       </>

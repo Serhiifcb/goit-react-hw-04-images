@@ -23,11 +23,13 @@ export class App extends React.Component {
   }
 
   formSubmitHandler = searchImageText => {
-    this.setState({
-      searchImageText,
-      page: 1,
-      images: [],
-    });
+    if (this.state.searchImageText !== searchImageText) {
+      this.setState({
+        searchImageText,
+        page: 1,
+        images: [],
+      });
+    }
   }
 
   componentDidUpdate(prevProps, prevState) {

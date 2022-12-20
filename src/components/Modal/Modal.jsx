@@ -45,5 +45,5 @@ export class Modal extends React.Component {
 
 Modal.propTypes = {
   children: PropTypes.node,
-  onSubmit:PropTypes.func.isRequired
+  toggleModal:PropTypes.func.isRequired
 }
