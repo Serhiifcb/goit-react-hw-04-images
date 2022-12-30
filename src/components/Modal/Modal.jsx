@@ -9,23 +9,25 @@ const modalRoot = document.querySelector('#modal-root')
 
 export const Modal = ({ toggleModal, children }) => {
   
-  useEffect(() => {
-    window.addEventListener('keydown', handleKeyDown);
-  })
-
-  const handleKeyDown = e => {
-    if (e.code === 'Escape') {
-      window.removeEventListener('keydown', handleKeyDown);  
-      toggleModal();
-      }
-  }
-
   const handleBackdropClick = e => {
     if (e.currentTarget === e.target) {
       toggleModal();
-      window.removeEventListener('keydown', handleKeyDown);
     }
   }
+
+  useEffect(() => {
+    const handleKeyDown = e => {
+      if (e.code === 'Escape') { 
+        toggleModal();
+      }
+    }
+    
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      return window.removeEventListener('keydown', handleKeyDown);
+    }
+  }, [toggleModal])
 
   return createPortal(
     <div className={css.overlay} onClick={handleBackdropClick}>
